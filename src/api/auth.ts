@@ -18,10 +18,12 @@ export interface AuthResponse {
 
 // 3. 타입을 적용합니다.
 export const signup = async (userData: UserCredentials) => {
-  return await axios.post(`${API_URL}/auth/signup`, userData);
+const fullUrl = "https://sockettest.up.railway.app/auth/signup";
+return await axios.post(fullUrl, userData);
 };
 
 export const login = async (userData: UserCredentials) => {
   // 응답 데이터에 타입을 명시하면, 호출부에서 자동완성 기능을 쓸 수 있습니다.
-  return await axios.post<AuthResponse>(`${API_URL}/auth/login`, userData);
+  const fullUrl = "https://sockettest.up.railway.app/auth/login";
+  return await axios.post<AuthResponse>(fullUrl, userData);
 };
