@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "https://sockettest.up.railway.app";
+// const API_URL = "https://sockettest.up.railway.app";
 
 // 1. 유저 데이터 타입을 정의합니다.
 export interface UserCredentials {
