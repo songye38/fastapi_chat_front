@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Api from '../api';
 
-export const AuthForm = ({ onAuthSuccess }: { onAuthSuccess: () => void }) => {
+export const AuthForm = ({ onAuthSuccess }: { onAuthSuccess: (username: string) => void }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
@@ -13,7 +13,7 @@ export const AuthForm = ({ onAuthSuccess }: { onAuthSuccess: () => void }) => {
       const endpoint = isLogin ? "/login" : "/signup";
       await Api.post(endpoint, { username, password });
       alert(isLogin ? "로그인 성공!" : "회원가입 성공!");
-      onAuthSuccess();
+      onAuthSuccess(username); // 로그인 성공 시 username을 부모에게 전달
     } catch (error) {
       alert(error);
     }
